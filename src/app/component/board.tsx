@@ -18,7 +18,7 @@ export const Board: React.FC = () => {
   let status;
   if (winner) {
     status = `Winner: ${winner}`
-  } else if (!squares.includes(null)) {
+  } else if (!squares.includes(null)) { 
     status = "It is draw"
   } else {
     status = `Winner: ${xIsnext ? 'X' : 'O'}`
@@ -35,14 +35,21 @@ export const Board: React.FC = () => {
               <Square value={squares.slice(0, 3)}
                 onSquareClick={(i) => handleClick(i)}
                 rowIndex={(0)}
+                startNumber={0}
               />
+            </div>
+            <div className='board-row'>
               <Square value={squares.slice(3, 6)}
                 onSquareClick={(i) => handleClick(i)}
                 rowIndex={(0)}
+                startNumber={3}
               />
+            </div>
+            <div className='board-row'>
               <Square value={squares.slice(6, 9)}
                 onSquareClick={(i) => handleClick(i)}
                 rowIndex={(0)}
+                startNumber={6}
               />
             </div>
           </div>
