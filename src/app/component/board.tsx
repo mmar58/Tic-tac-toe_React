@@ -1,6 +1,12 @@
 'use client';
 import { useState } from 'react';
 import { Square } from './square';
+import { Title } from './title';
+import { Button } from './button';
+import { Timer } from './timer';
+
+
+
 
 export const Board: React.FC = () => {
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null))
@@ -18,7 +24,7 @@ export const Board: React.FC = () => {
   let status;
   if (winner) {
     status = `Winner: ${winner}`
-  } else if (!squares.includes(null)) { 
+  } else if (!squares.includes(null)) {
     status = "It is draw"
   } else {
     status = `Winner: ${xIsnext ? 'X' : 'O'}`
@@ -27,34 +33,49 @@ export const Board: React.FC = () => {
   return (
 
     <>
-      <div className='game'>
-        <div className='game-bg'>
-          <div className='winner'>{status}</div>
-          <div className='board'>
-            <div className='board-row'>
-              <Square value={squares.slice(0, 3)}
-                onSquareClick={(i) => handleClick(i)}
-                rowIndex={(0)}
-                startNumber={0}
-              />
+      <div className='main'>
+        <div className='game'>
+          <div className="title">
+            <Title title='tic-tac-toe' />
+          </div>
+          <div className='game-bg'>
+            <div className='winner'>
+              <h1>{status}</h1>
             </div>
-            <div className='board-row'>
-              <Square value={squares.slice(3, 6)}
-                onSquareClick={(i) => handleClick(i)}
-                rowIndex={(0)}
-                startNumber={3}
-              />
-            </div>
-            <div className='board-row'>
-              <Square value={squares.slice(6, 9)}
-                onSquareClick={(i) => handleClick(i)}
-                rowIndex={(0)}
-                startNumber={6}
-              />
+            <div className='board'>
+              <div className='board-row'>
+                <Square value={squares.slice(0, 3)}
+                  onSquareClick={(i) => handleClick(i)}
+                  rowIndex={(0)}
+                  startNumber={0}
+                />
+              </div>
+              <div className='board-row'>
+                <Square value={squares.slice(3, 6)}
+                  onSquareClick={(i) => handleClick(i)}
+                  rowIndex={(0)}
+                  startNumber={3}
+                />
+              </div>
+              <div className='board-row'>
+                <Square value={squares.slice(6, 9)}
+                  onSquareClick={(i) => handleClick(i)}
+                  rowIndex={(0)}
+                  startNumber={6}
+                />
+              </div>
             </div>
           </div>
-        </div>
+          <div className='game-settings'>
+            <Button text='Play With Computer' />
+            <Button text='Play With Friend' />
+            <Button text='Settings' />
+          </div>
 
+        </div>
+        <div className='game-dettails'>
+          <Timer text='Timer: 00:00' />
+        </div>
       </div>
     </>
   );

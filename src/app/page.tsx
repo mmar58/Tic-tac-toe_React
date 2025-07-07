@@ -1,13 +1,20 @@
 
 
 import { Board } from "./component/board";
+import { Header } from "./component/header";
+
 
 
 
 export default function Home() {
   return (
-    <div>
-      <Board/>
-    </div>
+    <>
+      <div className="label">
+        <Header text="AZ Developers" />
+      </div>
+      <div>
+        <Board />
+      </div>
+    </>
   );
 }
