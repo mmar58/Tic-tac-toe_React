@@ -1,7 +1,7 @@
 
 
-import { Board } from "./component/board";
-import { Header } from "./component/header";
+import { Board } from "./component/game/board";
+import { Header } from "./component/elements/header";
 
 
 

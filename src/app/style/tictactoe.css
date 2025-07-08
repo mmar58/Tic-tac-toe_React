@@ -27,7 +27,7 @@ body {
   color: #000;
   background: #fff;
   border: 10px solid transparent;
-  border-image: url(../component/img/border.png) 40 stretch;
+  border-image: url(../assets/img/border.png) 40 stretch;
   width: 70px;
   height: 70px;
 }

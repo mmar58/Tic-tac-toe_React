@@ -1,5 +1,5 @@
 'use client';
-import '../style/tictactoe.css'
+import '../../style/tictactoe.css'
 
 
 type SquareProps = {

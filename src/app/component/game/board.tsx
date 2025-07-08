@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { Square } from './square';
-import { Title } from './title';
-import { Button } from './button';
-import { Timer } from './timer';
+import { Title } from '../elements/title';
+import { Button } from '../elements/button';
+import { Timer } from '../elements/timer';
 
 
 
@@ -27,7 +27,7 @@ export const Board: React.FC = () => {
   } else if (!squares.includes(null)) {
     status = "It is draw"
   } else {
-    status = `Winner: ${xIsnext ? 'X' : 'O'}`
+    status = `Next: ${xIsnext ? 'X' : 'O'}`
   }
 
   return (
