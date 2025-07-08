@@ -1,4 +1,5 @@
 import React from "react";
+import "../../style/headerPositionLeft.css"
 
 interface HeaderProps {
     text:string
@@ -6,6 +7,8 @@ interface HeaderProps {
 
 export const Header:React.FC<HeaderProps> = ({text}) => {
     return (
-        <h1>{text}</h1>
+        <div className="az">
+            <h1>{text}</h1>
+        </div>
     )
 }

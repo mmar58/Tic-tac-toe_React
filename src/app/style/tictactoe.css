@@ -8,36 +8,64 @@ body {
   padding: 0;
 }
 
+/* Board container */
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle, #222 20%, #000);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px #ffaa00aa;
+  border: 2px solid #ffaa00;
+}
+
+/* Each row */
 .board-row {
   display: flex;
 }
 
+/* Individual square button */
 .square {
-  color: #000;
-  background: #fff;
-  border: 10px solid #0000;
-  border-image: url("../media/border.bdb26421.png") 40;
-  width: 70px;
-  height: 70px;
-  font-size: 30px;
-  font-weight: 700;
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 5px;
+  color: #fff;
+  background-color: #111;
+  border: 2px solid #ffaa00;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px #ffaa00cc;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.square {
+.square:hover {
+  background-color: #ffaa00;
   color: #000;
-  background: #fff;
-  border: 10px solid transparent;
-  border-image: url(../assets/img/border.png) 40 stretch;
-  width: 70px;
-  height: 70px;
+  box-shadow: 0 0 10px #ffaa00;
 }
 
+/* Winner highlight (optional if adding logic later) */
+.square.winning {
+  background-color: #ffaa00;
+  color: black;
+  box-shadow: 0 0 20px #ffaa00;
+}
 .winner {
   text-align: center;
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
+}
+/* Status display */
+.winner h1 {
+  font-size: 1.5rem;
+  color: #ffaa00;
+  text-shadow: 0 0 6px #ffaa00;
+  margin-bottom: 1rem;
 }
 
 .title p {
@@ -54,14 +82,14 @@ body {
   padding-top: 25px;
 }
 
+/* Main game container */
 .game {
-  justify-content: start;
-  align-items: center;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  background: linear-gradient(145deg, #2a2a2a, #000);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 25px #ffaa00aa;
 }
+
 
 .board {
   box-shadow: 0px 1px 22px 20px #7d7d7d;
@@ -117,3 +145,10 @@ p.timer {
   font-size: 30px;
   font-weight: 600;
 }
+
+
+
+
+
+
+
