@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import "./settingsModal.css"
 import { FaGamepad, FaVolumeUp, FaStopwatch, FaTimes } from 'react-icons/fa';
 
 type SettingsProps = {
