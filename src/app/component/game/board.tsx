@@ -4,13 +4,20 @@ import { Square } from './square';
 import { Title } from '../elements/title';
 import { Button } from '../elements/button';
 import { Timer } from '../elements/timer';
-
+import { SettingsModal } from '../popup/settingsModal';
 
 
 
 export const Board: React.FC = () => {
+  // Board states
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null))
   const [xIsnext, setXIsnext] = useState(true)
+  // Settings states
+  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('medium');
+  const [showSettings, setShowSettings] = useState(false);
+  const [volume, setVolume] = useState(50);
+  const [turnTime, setTurnTime] = useState(30);
+
   const handleClick = (i: number) => {
     if (squares[i] || calculateWinner(squares)) return;
 
@@ -69,13 +76,25 @@ export const Board: React.FC = () => {
           <div className='game-settings'>
             <Button text='Play With Computer' />
             <Button text='Play With Friend' />
-            <Button text='Settings' />
+            <Button onClick={() => setShowSettings(true)} text='Settings' />
           </div>
 
         </div>
         <div className='game-dettails'>
           <Timer text='Timer: 00:00' />
         </div>
+        {showSettings && (
+          <SettingsModal
+            difficulty={difficulty}
+            setDifficulty={setDifficulty}
+            volume={volume}
+            setVolume={setVolume}
+            turnTime={turnTime}
+            setTurnTime={setTurnTime}
+            onClose={() => setShowSettings(false)}
+          />
+        )}
+
       </div>
     </>
   );

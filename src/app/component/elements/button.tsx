@@ -2,14 +2,14 @@ import React from "react";
 
 interface ButtonProps {
     text:string
+    onClick?:()=>void
 }
 
-export const Button:React.FC<ButtonProps> = ({text}) => {
+export const Button:React.FC<ButtonProps> = ({text,onClick=()=>{
+    alert("Button Clicked")
+}}) => {
 
-    const ButtonClick=() => {
-        alert('clicked me')
-    }
     return(
-        <button className="button" type="button" onClick={ButtonClick}>{text}</button>
+        <button className="button" type="button" onClick={onClick}>{text}</button>
     )
 }
