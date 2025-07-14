@@ -9,11 +9,13 @@ import { Header } from "./component/elements/header";
 export default function Home() {
   return (
     <>
-      <div className="label">
-        <Header text="AZ Developers" />
-      </div>
-      <div>
-        <Board />
+      <div className='main flex flex-wrap gap-0 '>
+        <div className="label shrink mx-auto">
+          <Header text="AZ Developers" />
+        </div>
+        <div className="flex flex-2 justify-center 2xl:pl-5 xl:pl-5 ">
+          <Board />
+        </div>
       </div>
     </>
   );
