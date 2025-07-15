@@ -25,7 +25,7 @@ export const SettingsModal: React.FC<SettingsProps> = ({
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2><FaGamepad style={{ marginRight: 8 }} /> Game Settings</h2>
+        <h2>Game Settings</h2>
 
         <div className="setting-group">
           <label><FaGamepad style={{ marginRight: 8 }} /> Difficulty:</label>
@@ -66,7 +66,6 @@ export const SettingsModal: React.FC<SettingsProps> = ({
         </div>
 
         <button onClick={onClose} className="close-btn flex flex-col mx-auto items-center">
-          <FaTimes style={{ marginRight: 0 }} />
           Close
         </button>
       </div>
