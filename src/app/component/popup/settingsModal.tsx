@@ -65,8 +65,8 @@ export const SettingsModal: React.FC<SettingsProps> = ({
           />
         </div>
 
-        <button onClick={onClose} className="close-btn">
-          <FaTimes style={{ marginRight: 6 }} />
+        <button onClick={onClose} className="close-btn flex flex-col mx-auto items-center">
+          <FaTimes style={{ marginRight: 0 }} />
           Close
         </button>
       </div>
