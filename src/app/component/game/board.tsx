@@ -45,7 +45,7 @@ export const Board: React.FC = () => {
 
   return (
     <>
-      <div className='game md:text-center sm:text-center max-2xl:text-center w-full'>
+      <div className='game flex flex-col max-2xl:text-center w-full'>
         <div className="title flex flex-1 flex-wrap pb-7">
           <div className='shrink 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full max-2xl:w-full max-xl:w-full max-lg:w-full max-md:w-full max-sm:w-full max-2xl:text-center max-xl:text-center max-lg:text-center max-md:text-center max-sm:text-center'>
             <Title title='tic-tac-toe' />
@@ -54,36 +54,47 @@ export const Board: React.FC = () => {
             <Timer text='00:00' />
           </div>
         </div>
-        <div className='game-bg inline-block'>
-          <div className='winner'>
-            <h1>{renderStatus()}</h1>
-          </div>
-          <div className='board'>
-            {[0, 3, 6].map((start) => (
-              <div key={start} className='board-row'>
-                <Square
-                  value={squares.slice(start, start + 3)}
-                  onSquareClick={handleClick}
-                  rowIndex={start / 3}
-                  startNumber={start}
-                  winningLine={winningLine}
-                />
+        <div className="game-box flex flex-col max-2xl:items-center">
+          <div className=' flex flex-col items-start'>
+
+            <div className="board-bg text-center">
+              <div className="game-bg">
+                <div className='winner'>
+                  <h1>{renderStatus()}</h1>
+                </div>
+                <div className="board-bg">
+                  <div className='board'>
+                    {[0, 3, 6].map((start) => (
+                      <div key={start} className='board-row'>
+                        <Square
+                          value={squares.slice(start, start + 3)}
+                          onSquareClick={handleClick}
+                          rowIndex={start / 3}
+                          startNumber={start}
+                          winningLine={winningLine}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            ))}
+
+              <div className='game-settings flex flex-col gap-2.5 mt-4 '>
+                <div className='shrink '>
+                  <Button text='Play With Computer' />
+                </div>
+                <div className='shrink '>
+                  <Button text='Play With Friend' />
+                </div>
+                <div className='shrink '>
+                  <Button onClick={() => setShowSettings(true)} text='Settings' />
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
 
-        <div className='game-settings flex flex-col gap-2.5 mt-4 '>
-          <div className='shrink '>
-            <Button text='Play With Computer' />
-          </div>
-          <div className='shrink '>
-            <Button text='Play With Friend' />
-          </div>
-          <div className='shrink '>
-            <Button onClick={() => setShowSettings(true)} text='Settings' />
-          </div>
-        </div>
       </div>
 
       {showSettings && (
