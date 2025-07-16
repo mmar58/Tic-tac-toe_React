@@ -10,7 +10,7 @@ body {
 }
 
 /* title */
-.title{
+.title {
   padding-top: 10px;
 }
 
@@ -61,7 +61,9 @@ body {
 }
 
 .winner {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 700;
@@ -70,10 +72,12 @@ body {
 
 /* Status display */
 .winner h1 {
+  position: relative;
+  color: #fa0;
+  text-shadow: 0 0 6px #fa0;
+  /* margin-bottom: 1rem; */
   font-size: 1.5rem;
-  color: #ffaa00;
-  text-shadow: 0 0 6px #ffaa00;
-  margin-bottom: 1rem;
+  left: 16%;
 }
 
 
@@ -136,4 +140,22 @@ body {
     box-shadow: 0px 0px 16px 0px #7d7d7d;
     border: none;
   }
+}
+
+.reset-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffaa00;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+
+.reset-button:hover {
+  transform: rotate(-90deg);
 }

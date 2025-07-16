@@ -5,6 +5,7 @@ import { Title } from '../elements/title';
 import { Button } from '../elements/button';
 import { Timer } from '../elements/timer';
 import { SettingsModal } from '../popup/settingsModal';
+import { FaRedoAlt } from 'react-icons/fa';
 
 export const Board: React.FC = () => {
   // Game board states
@@ -28,6 +29,14 @@ export const Board: React.FC = () => {
     setWinningLine(result.line);
   }, [squares]);
 
+  /** ♻️ Reset everything back to start */
+  const resetGame = () => {
+    setSquares(Array(9).fill(null));
+    setXIsNext(true);
+    setWinner(null);
+    setWinningLine([]);
+  };
+
   const handleClick = (i: number) => {
     if (squares[i] || winner) return;
 
@@ -47,6 +56,7 @@ export const Board: React.FC = () => {
     <>
       <div className='game flex flex-col max-2xl:text-center w-full'>
         <div className="title flex flex-1 flex-wrap pb-7">
+
           <div className='shrink 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full md:text-center lg:text-end xl:text-start max-2xl:w-full max-xl:w-full max-lg:w-full max-md:w-full max-sm:w-full max-2xl:text-center max-xl:text-center max-lg:text-center max-md:text-center max-sm:text-center'>
             <Title title='tic-tac-toe' />
           </div>
@@ -58,9 +68,18 @@ export const Board: React.FC = () => {
           <div className=' flex flex-col items-start'>
 
             <div className="board-bg text-center">
+
               <div className="game-bg">
-                <div className='winner'>
-                  <h1>{renderStatus()}</h1>
+
+                <div className='winner flex items-center gap-4 justify-start'>
+                  <button
+                    aria-label="Reset game"
+                    className="reset-button"
+                    onClick={resetGame}
+                  >
+                    <FaRedoAlt />
+                  </button>
+                  <h1 className="m-0">{renderStatus()}</h1>
                 </div>
                 <div className="board-bg">
                   <div className='board'>
